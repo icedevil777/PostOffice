@@ -54,23 +54,23 @@ for i in range(0, 120, 5):
 
 short_route = min(sum1)
 number_short_route = sum1.index(short_route)
-P = [point_1, point_3, point_2, point_5, point_4, point_1]
 
 C = 0
 P = [point_1, point_3, point_5, point_4, point_2, point_1]
-for i in range(5):
-    # P = [point_1, P[L[number_short_route][0] - 1],
-    #      P[L[number_short_route][1] - 1],
-    #      P[L[number_short_route][2] - 1], P[L[number_short_route][3] - 1],
-    #      point_1]
 
+for i in range(5):
     C = C + rang(P[i][0], P[i][1], P[i + 1][0], P[i + 1][1])
-    print(f"{P[i]} -> {P[i+1]} = {C} м ", end='')
+    print(f"{P[i]} -> {P[i + 1]} = {C} м ", end='')
 
 print(
     f"\nThere are {sum1.count(short_route)} shortest route,"
     f" their length = {short_route} m.")
 
+print(L)
 
+print(sum1)
+print(short_route)
 
+print(number_short_route)
 
+print(P[L[number_short_route - 3][3] - 1])
