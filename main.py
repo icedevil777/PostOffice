@@ -23,10 +23,9 @@ def gen():
             if int(i[j]) > 5 or int(i[j]) < 2:
                 break
             else:
-                if j == 3 and int(i[0]) + int(i[1]) + int(i[2]) + int(
-                        i[3]) == 14 \
-                        and int(i[0]) * int(i[1]) * int(i[2]) * int(
-                    i[3]) == 120:
+                if j == 3 and int(i[0]) + int(i[1]) + int(i[2]) + \
+                        int(i[3]) == 14 and int(i[0]) * int(i[1]) * \
+                        int(i[2]) * int(i[3]) == 120:
                     k = [el for el, _ in groupby(str(i))]
                     if len(k) == 4:
                         L.append(k)
@@ -59,17 +58,8 @@ P = [point_1, point_3, point_2, point_5, point_4, point_1]
 C = 0
 P = [point_1, point_3, point_5, point_4, point_2, point_1]
 for i in range(5):
-    # P = [point_1, P[L[number_short_route][0] - 1],
-    #      P[L[number_short_route][1] - 1],
-    #      P[L[number_short_route][2] - 1], P[L[number_short_route][3] - 1],
-    #      point_1]
-
     C = C + rang(P[i][0], P[i][1], P[i + 1][0], P[i + 1][1])
-    print(f"{P[i]} -> {P[i+1]} = {C} м ", end='')
+    print(f"{P[i]} -> {P[i + 1]} = {C} м ", end='')
 
-print(
-    f"\nThere are {sum1.count(short_route)} shortest route,"
-    f" their length = {short_route} m.")
-
-
-
+print(f"\nThere are {sum1.count(short_route)} shortest route,"
+      f" their length = {short_route} m.")
