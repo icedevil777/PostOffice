@@ -11,11 +11,11 @@ point_5 = [8, 3]  # Evergreen street
 P = [point_1, point_2, point_3, point_4, point_5, point_1]
 
 rang = lambda x0, y0, x1, y1: sqrt((x1 - x0) ** 2 + (y1 - y0) ** 2)
-"""Calculate one stap"""
+"""Calculate one step"""
 
 
 def gen():
-    """Genegate and return all possible routes (My algorithm)"""
+    """Generate and return all possible routes (My algorithm)"""
     L = []
     for i in range(3088):
         i = str(i + 2345)
@@ -23,10 +23,9 @@ def gen():
             if int(i[j]) > 5 or int(i[j]) < 2:
                 break
             else:
-                if j == 3 and int(i[0]) + int(i[1]) + int(i[2]) + int(
-                        i[3]) == 14 \
-                        and int(i[0]) * int(i[1]) * int(i[2]) * int(
-                    i[3]) == 120:
+                if j == 3 and int(i[0]) + int(i[1]) + int(i[2]) + \
+                        int(i[3]) == 14 and int(i[0]) * int(i[1]) * \
+                        int(i[2]) * int(i[3]) == 120:
                     k = [el for el, _ in groupby(str(i))]
                     if len(k) == 4:
                         L.append(k)
@@ -55,22 +54,20 @@ for i in range(0, 120, 5):
 short_route = min(sum1)
 number_short_route = sum1.index(short_route)
 
-C = 0
-P = [point_1, point_3, point_5, point_4, point_2, point_1]
 
+C = 0
+# P = [point_1,
+#      P[L[7][0] - 1],
+#      P[L[7][1] - 1],
+#      P[L[7][2] - 1],
+#      P[L[7][3] - 1],
+#      point_1]
+P = [point_1, point_3, point_5, point_4, point_2, point_1]
 for i in range(5):
     C = C + rang(P[i][0], P[i][1], P[i + 1][0], P[i + 1][1])
     print(f"{P[i]} -> {P[i + 1]} = {C} м ", end='')
 
-print(
-    f"\nThere are {sum1.count(short_route)} shortest route,"
-    f" their length = {short_route} m.")
+print(L[0][0])
 
-print(L)
-
-print(sum1)
-print(short_route)
-
-print(number_short_route)
-
-print(P[L[number_short_route - 3][3] - 1])
+print(f"\nThere are {sum1.count(short_route)} shortest route,"
+      f" their length = {short_route} m.")
