@@ -17,8 +17,8 @@ rang = lambda x0, y0, x1, y1: sqrt((x1 - x0) ** 2 + (y1 - y0) ** 2)
 def gen():
     """Generate and return all possible routes (My algorithm)"""
     L = []
-    for i in range(3088):
-        i = str(i + 2345)
+    for i in range(2345, 5433):
+        i = str(i)
         for j in range(4):
             if int(i[j]) > 5 or int(i[j]) < 2:
                 break
@@ -37,7 +37,6 @@ def gen():
 
 
 sum1 = []
-S = []
 R = []
 L = gen()
 
@@ -66,4 +65,9 @@ for i in range(5):
     print(f"{P[i]} -> {P[i + 1]} = {C} м ", end='')
 
 print(f"\nThere are {sum1.count(short_route)} shortest route,"
-      f" their length = {short_route} m.")
+      f" their length = {short_route} m ")
+print(f'It is routes - 1,{L[number_short_route][0]},'
+      f'{L[number_short_route][1]},'
+      f'{L[number_short_route][2]},'
+      f'{L[number_short_route][3]},1 and back ')
+
